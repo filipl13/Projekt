@@ -4,7 +4,6 @@ private:
     int score;
 
     void addRandomTile();
-    void rotateLeft();
     void rotateRight();
 
 public:

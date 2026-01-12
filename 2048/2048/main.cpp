@@ -1,10 +1,15 @@
 #include <iostream>
 #include "board.h"
+#include <cstdlib>
+#include <conio.h>
+void clear_screen()
+{
 #ifdef _WIN32
-#define CLEAR "cls"
-#else //In any other OS
-#define CLEAR "clear"
+    std::system("cls");
+#else
+    std::system("clear");
 #endif
+}
 void printBoard(const Board& board) {
     std::cout << "\n---------------------\n";
     for (int i = 0; i < 4; i++) {
@@ -25,7 +30,7 @@ int main() {
     char input;
 
     while (true) {
-        system(CLEAR);
+        clear_screen();
 
         printBoard(board);
         std::cout << "Score: " << board.getScore() << "\n\n";
@@ -34,7 +39,7 @@ int main() {
         std::cout << "R = reset | Q = izlaz\n";
         std::cout << "Unos: ";
 
-        std::cin >> input;
+        input = _getch();
 
         bool moved = false;
 
